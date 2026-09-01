@@ -4482,95 +4482,20 @@ footer{
     </div>
 
     <form
-      class="contact-card glass reveal-right"
-      id="contactForm"
-      action="https://formspree.io/f/moeqegyq"
-      method="POST"
-    >
-
-      <input
-        type="hidden"
-        name="subject"
-        value="New portfolio message from {{ name }}"
-      >
-
-      <input
-        type="text"
-        name="_gotcha"
-        class="form-honeypot"
-        tabindex="-1"
-        autocomplete="off"
-        aria-hidden="true"
-      >
-
-      <div class="field">
-
-        <label for="name">
-          NAME
-        </label>
-
-        <input
-          id="name"
-          name="name"
-          required
-          minlength="2"
-          maxlength="80"
-          autocomplete="name"
-          placeholder="Your name"
-        >
-
-      </div>
-
-      <div class="field">
-
-        <label for="email">
-          EMAIL
-        </label>
-
-        <input
-          id="email"
-          name="email"
-          type="email"
-          required
-          maxlength="160"
-          autocomplete="email"
-          placeholder="you@example.com"
-        >
-
-      </div>
-
-      <div class="field">
-
-        <label for="message">
-          MESSAGE
-        </label>
-
-        <textarea
-          id="message"
-          name="message"
-          required
-          minlength="10"
-          maxlength="4000"
-          placeholder="Tell me about your idea..."
-        ></textarea>
-
-      </div>
-
-      <button
-        class="btn primary magnetic contact-submit"
-        type="submit"
-      >
-        SEND EMAIL →
-      </button>
-
-      <p
-        id="formStatus"
-        class="muted"
-        role="status"
-        aria-live="polite"
-      ></p>
-
-    </form>
+  action="https://formspree.io/f/moeqegyq"
+  method="POST"
+>
+  <label>
+    Your email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit">Send</button>
+</form>
 
   </div>
 
