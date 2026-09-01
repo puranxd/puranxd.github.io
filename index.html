@@ -3598,97 +3598,56 @@ if(
    HERO LETTER ANIMATION
 ========================================================= */
 
-const heroTitle =
-  document.getElementById(
-    "heroTitle"
-  );
+const heroTitle = document.getElementById("heroTitle");
 
 function splitHeroText(){
 
-  const original =
-    heroTitle.innerHTML;
+  // Clear existing content
+  heroTitle.innerHTML = "";
 
-  heroTitle.innerHTML =
-    "PURAN";
+  // PURAN
+  const word = "PURAN";
 
-  const word =
-    "PURAN";
+  [...word].forEach((char, index) => {
 
-  [...word].forEach(
-    (char,index) => {
+    const span = document.createElement("span");
 
-      const span =
-        document.createElement(
-          "span"
-        );
+    span.className = "letter";
+    span.textContent = char;
+    span.style.animationDelay = `${index * 70}ms`;
 
-      span.className =
-        "letter";
+    heroTitle.appendChild(span);
 
-      span.textContent =
-        char;
+  });
 
-      span.style.animationDelay =
-        `${index*70}ms`;
+  // XD
+  const xd = document.createElement("span");
 
-      heroTitle.appendChild(
-        span
-      );
+  xd.className = "grad";
 
-    }
-  );
+  [..."XD"].forEach((char, index) => {
 
-  const xd =
-    document.createElement(
-      "span"
-    );
+    const span = document.createElement("span");
 
-  xd.className =
-    "grad";
+    span.className = "letter";
+    span.textContent = char;
+    span.style.animationDelay =
+      `${(5 + index) * 70}ms`;
 
-  [..."XD"].forEach(
-    (char,index) => {
+    xd.appendChild(span);
 
-      const span =
-        document.createElement(
-          "span"
-        );
+  });
 
-      span.className =
-        "letter";
+  heroTitle.appendChild(xd);
 
-      span.textContent =
-        char;
+  // Dot
+  const dot = document.createElement("span");
 
-      span.style.animationDelay =
-        `${(5+index)*70}ms`;
+  dot.className = "letter";
+  dot.textContent = ".";
+  dot.style.animationDelay = "520ms";
 
-      xd.appendChild(span);
-
-    }
-  );
-
-  heroTitle.appendChild(
-    xd
-  );
-
-  const dot =
-    document.createElement(
-      "span"
-    );
-
-  dot.className =
-    "letter";
-
-  dot.textContent =
-    ".";
-
-  dot.style.animationDelay =
-    "520ms";
-
-  heroTitle.appendChild(
-    dot
-  );
+  heroTitle.appendChild(dot);
 
 }
 
