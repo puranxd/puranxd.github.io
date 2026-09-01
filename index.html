@@ -6983,39 +6983,33 @@ if(contactForm){
    Put click.mp4 beside index.html
 ========================================================= */
 
-const clickSound =
-  new Audio("click.mp3");
+/* =========================================================
+   CLICK SOUND
+========================================================= */
+
+const clickSound = new Audio("./click.mp3");
 
 clickSound.preload = "auto";
 clickSound.volume = 0.28;
 
-window.addEventListener(
-  "mousedown",
-  event => {
+document.addEventListener("click", () => {
 
-    if(event.button !== 0){
-      return;
+  try {
+
+    clickSound.pause();
+    clickSound.currentTime = 0;
+
+    const playPromise = clickSound.play();
+
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {});
     }
 
-    try{
+  } catch (error) {
+    console.warn("Click sound unavailable:", error);
+  }
 
-      clickSound.currentTime = 0;
-
-      const playback =
-        clickSound.play();
-
-      if(playback?.catch){
-        playback.catch(() => {});
-      }
-
-    }catch(error){
-      // Missing/unsupported click.mp4 should never break the site.
-    }
-
-  },
-  {passive:true}
-);
-
+});
 
 /* =========================================================
    TOAST
