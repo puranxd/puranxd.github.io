@@ -4328,126 +4328,117 @@ footer{
 <!-- =======================================================
      CONTACT
 ======================================================= -->
+<form
+  class="contact-card glass reveal-right"
+  id="contactForm"
+>
 
-<section class="section" id="contact">
+  <div class="field">
 
-  <div class="section-number">
-    04
-  </div>
+```
+<label for="name">
+  NAME
+</label>
 
-  <p class="kicker reveal">
-    04 / CONTACT
-  </p>
-
-  <h2 class="title reveal">
-    Let's build<br>
-    <span class="grad">
-      something.
-    </span>
-  </h2>
-
-  <div class="contact">
-
-    <div class="reveal-left">
-
-      <p class="contact-note">
-        Have an idea, collaboration or project
-        in mind? Send me a message and let's talk.
-      </p>
-
-      <a
-        class="email-box"
-        href="mailto:puranxd3@gmail.com"
-      >
-        puranxd3@gmail.com
-      </a>
-
-      <div class="contact-card glass status-card">
-
-        <span class="kicker">
-          STATUS
-        </span>
-
-        <p style="margin:13px 0 0">
-          🟢 Available for new ideas & experiments
-        </p>
-
-      </div>
-
-    </div>
-
-    <form
-      class="contact-card glass reveal-right"
-      id="contactForm"
-    >
-
-      <div class="field">
-
-        <label for="name">
-          NAME
-        </label>
-
-        <input
-          id="name"
-          name="name"
-          required
-          autocomplete="name"
-          placeholder="Your name"
-        >
-
-      </div>
-
-      <div class="field">
-
-        <label for="email">
-          EMAIL
-        </label>
-
-        <input
-          id="email"
-          name="email"
-          type="email"
-          required
-          autocomplete="email"
-          placeholder="you@example.com"
-        >
-
-      </div>
-
-      <div class="field">
-
-        <label for="message">
-          MESSAGE
-        </label>
-
-        <textarea
-          id="message"
-          name="message"
-          required
-          placeholder="Tell me about your idea..."
-        ></textarea>
-
-      </div>
-
-      <button
-        class="btn primary magnetic"
-        type="submit"
-      >
-        SEND EMAIL →
-      </button>
-
-      <p
-        id="formStatus"
-        class="muted"
-      ></p>
-
-    </form>
+<input
+  id="name"
+  name="name"
+  required
+  autocomplete="name"
+  placeholder="Your name"
+>
+```
 
   </div>
 
-</section>
+  <div class="field">
 
-</main>
+```
+<label for="email">
+  EMAIL
+</label>
+
+<input
+  id="email"
+  name="email"
+  type="email"
+  required
+  autocomplete="email"
+  placeholder="you@example.com"
+>
+```
+
+  </div>
+
+  <div class="field">
+
+```
+<label for="message">
+  MESSAGE
+</label>
+
+<textarea
+  id="message"
+  name="message"
+  required
+  placeholder="Tell me about your idea..."
+></textarea>
+```
+
+  </div>
+
+<button
+class="btn primary magnetic"
+type="submit"
+
+>
+
+```
+SEND EMAIL →
+```
+
+  </button>
+
+  <p
+    id="formStatus"
+    class="muted"
+  ></p>
+
+</form>
+
+<script>
+  const contactForm = document.getElementById("contactForm");
+  const formStatus = document.getElementById("formStatus");
+
+  contactForm.addEventListener("submit", function (e) {
+
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    const subject = encodeURIComponent(
+      "Portfolio Contact from " + name
+    );
+
+    const body = encodeURIComponent(
+      "Name: " + name +
+      "\nEmail: " + email +
+      "\n\nMessage:\n" + message
+    );
+
+    window.location.href =
+      "mailto:puranxd3@gmail.com" +
+      "?subject=" + subject +
+      "&body=" + body;
+
+    formStatus.textContent =
+      "Opening your email app...";
+
+  });
+</script>
+
 
 <!-- =======================================================
      FOOTER
